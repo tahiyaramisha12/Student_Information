@@ -1,3 +1,5 @@
 Ramisha,2
 Redhila,5
 Mahiba,4
+h,10
+n,0
