@@ -77,13 +77,13 @@ def run(students_data, parent_window=None):
     selection_label = tk.Label(view_window, text="Click a row to select", font=('arial', 14), bg='lightgreen')
     selection_label.place(relx=0.5, rely=0.8, anchor='center')
 
-    back_btn = tk.Button(view_window, text="Back", font=('arial', 16, 'bold'), bg='#ff9999', command=go_back)
+    back_btn = tk.Button(view_window, text="🔙 Back", font=('arial', 16, 'bold'), bg='#ff9999', command=go_back)
     back_btn.place(relx=0.2, rely=0.9, relwidth=0.2, anchor='center')
 
-    del_btn = tk.Button(view_window, text="Delete", font=('arial', 16, 'bold'), bg='#ff9999', command=delete_row)
+    del_btn = tk.Button(view_window, text="🗑️Delete", font=('arial', 16, 'bold'), bg='#ff9999', command=delete_row)
     del_btn.place(relx=0.5, rely=0.9, relwidth=0.2, anchor='center')
 
-    upd_btn = tk.Button(view_window, text="Update", font=('arial', 16, 'bold'), bg='#ff9999', command=update_info)
+    upd_btn = tk.Button(view_window, text="✏️ Update", font=('arial', 16, 'bold'), bg='#ff9999', command=update_info)
     upd_btn.place(relx=0.8, rely=0.9, relwidth=0.2, anchor='center')
 
     view_window.mainloop()

@@ -87,16 +87,16 @@ def run(students_data=None, selected_index=None):
     entry2 = tk.Entry(app, textvariable=stu_id, font=('arial', 20, 'bold'))
     entry2.place(relx=0.5, rely=0.2, relwidth=0.4)
 
-    button_add = tk.Button(app, text="Add", font=('arial', 20, 'bold'), command=add_student)
+    button_add = tk.Button(app, text="➕ Add", font=('arial', 20, 'bold'), command=add_student)
     button_add.place(relx=0.1, rely=0.3, relwidth=0.2)
 
-    button_view = tk.Button(app, text="View Information", font=('arial', 20, 'bold'), command=open_view_window)
+    button_view = tk.Button(app, text="👁️ View", font=('arial', 20, 'bold'), command=open_view_window)
     button_view.place(relx=0.4, rely=0.3, relwidth=0.2)
 
-    button_clear = tk.Button(app, text="Clear", font=('arial', 20, 'bold'), command=clear_list)
+    button_clear = tk.Button(app, text="❌ Clear", font=('arial', 20, 'bold'), command=clear_list)
     button_clear.place(relx=0.7, rely=0.3, relwidth=0.2)
 
-    button_update = tk.Button(app, text="Update Save", font=('arial', 20, 'bold'), command=save_update)
+    button_update = tk.Button(app, text="💾 Update Save", font=('arial', 20, 'bold'), command=save_update)
     button_update.place(relx=0.4, rely=0.5, relwidth=0.2)
 
     status_label = tk.Label(app, text="", font=('arial', 14), bg='lightblue')
