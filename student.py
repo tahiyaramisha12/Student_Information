@@ -77,6 +77,7 @@ def run(students_data=None, selected_index=None):
         else:
             status_label.config(text="Please fill in all fields or select a student!")
 
+    # GUI Layout
     label1 = tk.Label(app, text="Student Name:", font=('arial', 20, 'bold'), bg='lightblue')
     label1.place(relx=0.1, rely=0.1)
     entry1 = tk.Entry(app, textvariable=stu_name, font=('arial', 20, 'bold'))
@@ -87,26 +88,38 @@ def run(students_data=None, selected_index=None):
     entry2 = tk.Entry(app, textvariable=stu_id, font=('arial', 20, 'bold'))
     entry2.place(relx=0.5, rely=0.2, relwidth=0.4)
 
-    button_add = tk.Button(app, text="➕ Add", font=('arial', 20, 'bold'), command=add_student)
-    button_add.place(relx=0.1, rely=0.3, relwidth=0.2)
+    # Dropdown menu for all actions
+    dropdown_label = tk.Label(app, text="Select Action:", font=('arial', 16), bg='lightblue')
+    dropdown_label.place(relx=0.1, rely=0.3)
 
-    button_view = tk.Button(app, text="👁️ View", font=('arial', 20, 'bold'), command=open_view_window)
-    button_view.place(relx=0.4, rely=0.3, relwidth=0.2)
+    options = ["➕ Add", "👁️ View", "❌ Clear", "💾 Update Save"]
+    selected_option = tk.StringVar(value=options[0])
+    action_menu = tk.OptionMenu(app, selected_option, *options)
+    action_menu.config(font=('arial', 16))
+    action_menu.place(relx=0.5, rely=0.3, relwidth=0.4)
 
-    button_clear = tk.Button(app, text="❌ Clear", font=('arial', 20, 'bold'), command=clear_list)
-    button_clear.place(relx=0.7, rely=0.3, relwidth=0.2)
+    def perform_action():
+        action = selected_option.get()
+        if action == "➕ Add":
+            add_student()
+        elif action == "👁️ View":
+            open_view_window()
+        elif action == "❌ Clear":
+            clear_list()
+        elif action == "💾 Update Save":
+            save_update()
 
-    button_update = tk.Button(app, text="💾 Update Save", font=('arial', 20, 'bold'), command=save_update)
-    button_update.place(relx=0.4, rely=0.5, relwidth=0.2)
+    go_button = tk.Button(app, text="Go", font=('arial', 16, 'bold'), command=perform_action)
+    go_button.place(relx=0.4, rely=0.4, relwidth=0.2)
 
     status_label = tk.Label(app, text="", font=('arial', 14), bg='lightblue')
-    status_label.place(relx=0.1, rely=0.4, relwidth=0.8)
+    status_label.place(relx=0.1, rely=0.5, relwidth=0.8)
 
+    # Preload values if editing
     if original_index is not None and 0 <= original_index < len(students_data):
         name, sid = students_data[original_index]
         stu_name.set(name)
         stu_id.set(sid)
-        button_add.place_forget()
         status_label.config(text="Editing student information")
 
     app.mainloop()
